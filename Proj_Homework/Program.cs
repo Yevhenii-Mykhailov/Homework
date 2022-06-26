@@ -132,14 +132,12 @@ namespace Proj_Homework
 
             Console.Write("Enter your natural two-digit number N: ");
             string userValue = Console.ReadLine();
-            double number = 0;
+            string firstNumber = Convert.ToString(userValue[0]);
+            string secondNumber = Convert.ToString(userValue[1]);
 
-            for (int i = 0; i < userValue.Length; i++)
-            {
-                number += Convert.ToDouble(userValue[i].ToString());
-            }
+            double result = Convert.ToDouble(firstNumber) + Convert.ToDouble(secondNumber);
 
-            Console.Write("Sum of the digits of N is: " + number);
+            Console.Write("Sum of the digits of N is: " + result);
         }
 
 
@@ -151,7 +149,7 @@ namespace Proj_Homework
             //Task4();
             //Task5();
             //Task6();
-            Task7();
+            //Task7();
         }
     }
 }
