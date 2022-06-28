@@ -54,7 +54,7 @@ namespace Proj_Homework
             return $"Output of Y=AX+B is: Y = " + a + "X " + b.ToString(format);
         }
 
-        static double Task7 (string userValue)
+        static double GetSummOfInputBySymbol(string userValue)
         {
             string firstNumber = Convert.ToString(userValue[0]);
             string secondNumber = Convert.ToString(userValue[1]);
