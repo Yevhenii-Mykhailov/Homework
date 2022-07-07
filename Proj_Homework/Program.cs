@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Proj_Homework
+namespace Proj_Homework_Console
 {
     class Program
     {
