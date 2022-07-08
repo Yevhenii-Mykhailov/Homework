@@ -8,6 +8,14 @@ namespace Proj_Homework_Console
     {
         static void Main(string[] args)
         {
+            try
+            {
+                Console.WriteLine(NumericalHelper.GetSummOfInputBySymbol(-55));
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

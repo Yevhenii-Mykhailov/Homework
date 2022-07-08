@@ -9,12 +9,14 @@ namespace Numerical_Library
             return hours * 60;
         }
 
-        public static double CalculateFormula(int a, int b)
+        public static float CalculateFormula(int a, int b)
         {
-            double numerator = 5 * a + b * b;
-            double denominator = b - a;
+            if ((b - a) == 0)
+            {
+                throw new ArithmeticException("Cannot delete on zero!");
+            }
 
-            return Convert.ToDouble(numerator / denominator);
+            return (float)(5 * a + b * b) / (b - a);
         }
 
         public static (int a, int b) SwapValues(int a, int b)
@@ -28,6 +30,11 @@ namespace Numerical_Library
 
         public static (double dividing, double divisionRemainder) CalculateDividingAndDivisionRemainder(double a, double b)
         {
+            if (b == 0)
+            {
+                throw new ArithmeticException("Cannot delete on zero!");
+            }
+
             double dividing = a / b;
             double divisionRemainder = a % b;
 
@@ -36,30 +43,38 @@ namespace Numerical_Library
 
         public static double CalculateExpressionByFormula(double a, double b, double c)
         {
+            if (a == 0)
+            {
+                throw new ArithmeticException("Cannot delete on zero!");
+            }
+
             return c - b / a;
         }
-
-        public static string GetLineEquation(double x1, double y1, double x2, double y2)
+        
+        public static (float a, float b) GetLineEquation(float x1, float y1, float x2, float y2)
         {
-            double numeratorA = y2 - y1;
-            double denominatorA = x2 - x1;
-            double a = numeratorA / denominatorA;
+            if ((x1 - x2) == 0)
+            {
+                throw new ArithmeticException("Cannot delete on zero!");
+            }
 
-            double numeratorB = -x1 * (y2 - y1) + y1 * (x2 - x1);
-            double denominatorB = x2 - x1;
-            double b = numeratorB / denominatorB;
+            float a = (y1 - y2) / (x1 - x2);
+            float b = y2 - a * x2;
 
-            string format = "+#.##;-#.##;(0)";
-            return $"Output of Y=AX+B is: Y = " + a + "X " + b.ToString(format);
+            return (a, b);
         }
 
-        public static double GetSummOfInputBySymbol(string userValue)
+        public static int GetSummOfInputBySymbol(int userValue)
         {
-            string firstNumber = Convert.ToString(userValue[0]);
-            string secondNumber = Convert.ToString(userValue[1]);
+            int firstNumber = userValue / 10;
+            int secondNumber = userValue % 10;
 
-            double result = Convert.ToDouble(firstNumber) + Convert.ToDouble(secondNumber);
-            return result;
+            if (firstNumber >= 10)
+            {
+                throw new ArgumentOutOfRangeException("To long or to short value!");
+            }
+
+            return firstNumber + secondNumber;
         }
     }
 }
