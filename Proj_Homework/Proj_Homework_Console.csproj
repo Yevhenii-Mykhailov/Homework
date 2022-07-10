@@ -5,4 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Numerical_Library\Numerical_Library.csproj" />
+  </ItemGroup>
 </Project>
