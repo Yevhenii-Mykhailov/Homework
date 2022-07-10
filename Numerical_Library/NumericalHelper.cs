@@ -6,6 +6,11 @@ namespace Numerical_Library
     {
         public static int ConvertHoursToMinutes(int hours)
         {
+            if (hours <= 0)
+            {
+                throw new ArithmeticException("Cannot delete on zero!");
+            }
+
             return hours * 60;
         }
 
